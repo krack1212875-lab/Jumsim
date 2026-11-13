@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#14161b">
-<meta name="description" content="질문 7개에 답하면 점심 메뉴 하나를 골라주는 사이트">
+<meta name="description" content="질문 8개에 답하면 점심 메뉴 하나를 골라주는 사이트">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffb454'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%2314161b'/%3E%3C/svg%3E">
 <style>:root{padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
 <title>오늘 뭐 먹지</title>
@@ -179,7 +179,7 @@ h1, h2 { font-family: var(--font-display); }
 
   <section id="intro" class="intro">
     <h1>오늘 점심,<br><em>뭐 먹지?</em></h1>
-    <p>질문 7개에 답하면 메뉴 하나를 골라드려요. 1분이면 끝나요.</p>
+    <p>질문 8개에 답하면 메뉴 하나를 골라드려요. 1분이면 끝나요.</p>
     <button type="button" class="cta" id="start">시작하기</button>
     <span class="count" id="count">메뉴 55가지 중에서 골라요</span>
   </section>
@@ -508,7 +508,55 @@ const MORE = [
   ['클램 차우더', '조개가 들어간 걸쭉한 크림 수프와 빵', 9500, 15, 1, 0, 1, 'bread', 'sea', 0, 'W', 1, 'soup:cream:bread'],
   ['토마토 수프', '새콤달콤한 토마토 수프와 구운 빵', 8500, 15, 1, 0, 1, 'bread', 'veg', 0, 'W', 0, 'soup:tomato:bread'],
   ['그라탱', '치즈를 얹어 오븐에 구운 크리미한 그라탱', 12500, 25, 2, 0, 0, 'rice', 'mix', 0, 'W', 1, 'omurice:orange:cream'],
-  ['퀘사디아', '치즈와 닭고기를 넣어 구운 또띠아', 10500, 15, 2, 1, 0, 'other', 'meat', 0, 'W', 1, 'sandwich']
+  ['퀘사디아', '치즈와 닭고기를 넣어 구운 또띠아', 10500, 15, 2, 1, 0, 'other', 'meat', 0, 'W', 1, 'sandwich'],
+  ['새우 오일 파스타', '통통한 새우와 마늘, 올리브오일로 볶은 파스타', 13500, 20, 2, 1, 0, 'noodle', 'sea', 0, 'W', 1, 'dry:gold:basil'],
+  ['명란 크림 파스타', '짭짤한 명란과 부드러운 크림 소스', 13000, 20, 2, 0, 0, 'noodle', 'sea', 0, 'W', 1, 'dry:pale'],
+  ['트러플 크림 파스타', '트러플 향이 진한 버섯 크림 파스타', 15000, 25, 2, 0, 0, 'noodle', 'veg', 0, 'W', 1, 'dry:cream:basil'],
+  ['푸타네스카', '올리브와 케이퍼, 토마토를 넣은 새콤짭짤한 파스타', 12500, 20, 2, 1, 0, 'noodle', 'mix', 0, 'W', 0, 'dry:tomato'],
+  ['카치오 에 페페', '치즈와 후추만으로 맛을 낸 담백한 파스타', 12000, 15, 2, 1, 0, 'noodle', 'veg', 0, 'W', 1, 'dry:pale'],
+  ['미트볼 스파게티', '큼직한 미트볼을 토마토 소스에 올려서', 12500, 25, 3, 0, 0, 'noodle', 'meat', 0, 'W', 1, 'dry:tomato:basil'],
+  ['쉬림프 로제 파스타', '탱글한 새우를 넣은 부드러운 로제 소스', 14000, 20, 2, 1, 0, 'noodle', 'sea', 0, 'W', 1, 'dry:pink:basil'],
+  ['소시지 토마토 파스타', '구운 소시지와 토마토 소스, 파마산 치즈', 12500, 20, 2, 1, 0, 'noodle', 'meat', 0, 'W', 1, 'dry:tomato:basil'],
+  ['뇨끼', '쫀득한 감자 뇨끼에 크림이나 토마토 소스', 13500, 25, 2, 0, 0, 'other', 'veg', 0, 'W', 1, 'dry:cream:basil'],
+  ['페퍼로니 피자', '짭짤한 페퍼로니와 치즈가 가득한 피자', 12500, 25, 3, 0, 0, 'bread', 'meat', 0, 'W', 1, 'pizza'],
+  ['콤비네이션 피자', '햄, 양파, 피망, 버섯을 골고루 올려서', 13500, 25, 3, 0, 0, 'bread', 'mix', 0, 'W', 1, 'pizza'],
+  ['하와이안 피자', '파인애플과 햄의 달콤짭짤한 조합', 13000, 25, 2, 0, 0, 'bread', 'mix', 0, 'W', 1, 'pizza'],
+  ['쉬림프 피자', '새우와 올리브, 모짜렐라를 올린 피자', 14500, 25, 2, 0, 0, 'bread', 'sea', 0, 'W', 1, 'pizza'],
+  ['포테이토 피자', '감자와 베이컨, 마요 소스를 올려서', 13000, 25, 3, 0, 0, 'bread', 'mix', 0, 'W', 1, 'pizza'],
+  ['불고기 피자', '달콤한 불고기와 양파를 올린 한국식 피자', 14000, 25, 3, 0, 0, 'bread', 'meat', 0, 'W', 1, 'pizza'],
+  ['닭고기 리조또', '부드러운 닭가슴살과 파마산 치즈 리조또', 13000, 25, 2, 0, 0, 'rice', 'meat', 0, 'W', 1, 'soup:pale:green'],
+  ['아란치니 세트', '치즈가 늘어나는 튀긴 주먹밥과 샐러드', 11500, 20, 2, 0, 0, 'rice', 'mix', 0, 'W', 1, 'cutlet:balls'],
+  ['채끝 스테이크 정식', '숯불 향 나는 채끝 스테이크와 구운 채소', 19000, 30, 3, 0, 0, 'other', 'meat', 0, 'W', 1, 'steak:soy'],
+  ['스테이크 샐러드', '얇게 썬 스테이크를 올린 든든한 샐러드', 14500, 15, 2, 0, 0, 'other', 'meat', 0, 'W', 0, 'salad:chicken'],
+  ['베이컨 치즈버거', '바삭한 베이컨과 체다치즈를 얹은 버거', 10500, 15, 3, 0, 0, 'bread', 'meat', 0, 'W', 1, 'burger'],
+  ['불고기버거', '달콤한 불고기 패티와 양상추', 8500, 15, 2, 0, 0, 'bread', 'meat', 0, 'W', 1, 'burger'],
+  ['피시 버거', '바삭한 생선 튀김과 타르타르 소스', 8500, 15, 2, 0, 0, 'bread', 'sea', 0, 'W', 1, 'burger'],
+  ['비건 버거', '콩 패티와 아보카도, 채소로 채운 버거', 10500, 15, 2, 0, 0, 'bread', 'veg', 0, 'W', 0, 'burger'],
+  ['바비큐 치킨 샌드위치', '바비큐 소스에 버무린 닭고기를 빵 사이에', 9500, 15, 2, 0, 0, 'bread', 'meat', 0, 'W', 1, 'sandwich'],
+  ['루벤 샌드위치', '콘비프와 사워크라우트, 치즈를 구운 빵에', 11000, 15, 3, 0, 0, 'bread', 'meat', 0, 'W', 1, 'sandwich'],
+  ['BLT 샌드위치', '베이컨, 상추, 토마토의 간단한 조합', 8500, 10, 2, 0, 0, 'bread', 'meat', 0, 'W', 1, 'sandwich'],
+  ['에그 마요 샌드위치', '부드러운 계란 마요를 듬뿍 넣어서', 6500, 10, 1, 0, 0, 'bread', 'mix', 0, 'W', 0, 'sandwich'],
+  ['크로크무슈', '햄과 치즈를 넣고 베샤멜 소스를 얹어 구운 빵', 9500, 15, 2, 0, 0, 'bread', 'meat', 0, 'W', 1, 'sandwich'],
+  ['연어 베이글', '크림치즈와 훈제 연어, 케이퍼를 얹은 베이글', 10500, 10, 2, 0, 0, 'bread', 'sea', 0, 'W', 0, 'sandwich'],
+  ['베이글 샌드위치', '쫄깃한 베이글에 햄과 치즈, 채소를', 8000, 10, 2, 0, 0, 'bread', 'meat', 0, 'W', 0, 'sandwich'],
+  ['치킨 시저 랩', '닭고기와 시저 소스를 또띠아에 돌돌', 9000, 10, 2, 0, 0, 'other', 'meat', 0, 'W', 0, 'sandwich'],
+  ['나초 세트', '치즈 소스와 살사, 과카몰리를 곁들인 나초', 9500, 10, 2, 1, 0, 'other', 'mix', 0, 'W', 1, 'pizza'],
+  ['치킨 파히타', '매콤하게 구운 닭고기와 파프리카, 또띠아', 13500, 20, 2, 1, 0, 'other', 'meat', 0, 'W', 1, 'stirfry:orange:vy'],
+  ['엔칠라다', '또띠아에 고기를 말아 소스와 치즈를 얹어 구워서', 12000, 20, 2, 1, 0, 'other', 'meat', 0, 'W', 1, 'omurice:orange:cream'],
+  ['팔라펠 랩', '병아리콩 튀김과 채소, 요거트 소스', 9500, 10, 2, 0, 0, 'bread', 'veg', 0, 'W', 0, 'sandwich'],
+  ['후무스 플레이트', '후무스와 구운 피타빵, 올리브와 채소', 11000, 15, 1, 0, 0, 'bread', 'veg', 0, 'W', 0, 'salad:chicken'],
+  ['팬케이크 브런치', '폭신한 팬케이크와 베이컨, 계란', 11000, 20, 2, 0, 0, 'bread', 'mix', 0, 'W', 1, 'pancake'],
+  ['프렌치토스트', '달걀물에 적셔 구운 달콤한 토스트', 9500, 15, 1, 0, 0, 'bread', 'mix', 0, 'W', 1, 'sandwich'],
+  ['와플 세트', '바삭한 와플과 과일, 커피 한 잔', 9500, 15, 1, 0, 0, 'bread', 'veg', 0, 'W', 1, 'pancake:gold'],
+  ['소고기 스튜', '푹 끓인 소고기와 채소, 빵을 곁들여서', 14000, 30, 3, 0, 1, 'bread', 'meat', 0, 'W', 0, 'pot:soy:meat'],
+  ['미네스트로네', '채소와 콩이 가득한 이탈리아식 토마토 수프', 9000, 15, 1, 0, 1, 'bread', 'veg', 0, 'W', 0, 'soup:tomato:bread'],
+  ['콘 수프', '고소하고 달콤한 옥수수 수프와 빵', 8000, 10, 1, 0, 1, 'bread', 'veg', 0, 'W', 1, 'soup:yellow:bread'],
+  ['어니언 그라탱 수프', '캐러멜 양파 수프에 치즈 올린 바게트', 10500, 20, 2, 0, 1, 'bread', 'mix', 0, 'W', 1, 'soup:amber:bread'],
+  ['쉬림프 샐러드', '구운 새우와 채소를 레몬 소스에', 12500, 10, 1, 0, 0, 'other', 'sea', 1, 'W', 0, 'salad:salmon'],
+  ['콥 샐러드', '닭고기, 베이컨, 계란, 아보카도를 한 접시에', 11500, 10, 2, 0, 0, 'other', 'meat', 1, 'W', 1, 'salad:chicken'],
+  ['리코타 샐러드', '신선한 리코타 치즈와 채소, 발사믹 소스', 10500, 10, 1, 0, 0, 'other', 'veg', 1, 'W', 0, 'salad:chicken'],
+  ['피시 앤 칩스', '바삭한 생선 튀김과 감자튀김', 13500, 20, 3, 0, 0, 'other', 'sea', 0, 'W', 1, 'cutlet:slices'],
+  ['감바스 알 아히요', '마늘 오일에 새우를 끓여 바게트에 찍어서', 14500, 20, 2, 1, 0, 'bread', 'sea', 0, 'W', 1, 'soup:orange:shrimp']
 ];
 M.push(...MORE.map(a => ({ n: a[0], d: a[1], p: a[2], t: a[3], h: a[4], sp: a[5], so: a[6], c: a[7], pr: a[8], cold: a[9], k: a[10], g: a[11] })));
 
@@ -526,33 +574,42 @@ const Q = [
   { q: '예산은 얼마쯤 생각해요?', o: [
     { t: '7,000원 이하', r: '7천 원 이하', f: m => [4, -3, -6][tier(m)] },
     { t: '7,000원~12,000원', r: '7천~1만 2천 원', f: m => [1, 4, -4][tier(m)] },
-    { t: '12,000원 이상', r: '1만 2천 원 이상, 오늘은 든든히', f: m => [-3, -1, 4][tier(m)] }
+    { t: '12,000원 이상', r: '1만 2천 원 이상, 오늘은 든든히', f: m => [-3, -1, 4][tier(m)] },
+    { t: '상관 없음', r: null, f: none }
   ] },
   { q: '따뜻한 음식과 시원한 음식 중에 뭐가 좋아요?', o: [
     { t: '따뜻한 음식', r: '따뜻하게 먹는 메뉴', f: m => m.cold ? -7 : 2 },
-    { t: '시원한 음식', r: '시원하게 먹는 메뉴', f: m => m.cold ? 7 : -6 }
+    { t: '시원한 음식', r: '시원하게 먹는 메뉴', f: m => m.cold ? 7 : -6 },
+    { t: '상관 없음', r: null, f: none }
   ] },
   { q: '기름진 음식과 담백한 음식 중에 뭐가 좋아요?', o: [
     { t: '기름진 음식', r: '기름진 맛', f: m => m.g ? 4 : -3 },
-    { t: '담백한 음식', r: '담백한 맛', f: m => m.g ? -4 : 2 }
+    { t: '담백한 음식', r: '담백한 맛', f: m => m.g ? -4 : 2 },
+    { t: '상관 없음', r: null, f: none }
   ] },
   { q: '오늘은 뭐가 제일 당겨요?', o: [
     { t: '면', r: '면 요리', f: m => m.c === 'noodle' ? 5 : -3 },
     { t: '밥', r: '밥이 있는 메뉴', f: m => m.c === 'rice' ? 4 : -3 },
     { t: '고기', r: '고기가 주인공', f: m => m.pr === 'meat' ? 4 : m.pr === 'mix' ? -1 : -3 },
     { t: '국물', r: '국물이 있는 메뉴', f: m => m.so ? 5 : -3 },
-    { t: '해산물', r: '해산물', f: m => m.pr === 'sea' ? 5 : m.pr === 'mix' ? -1 : -3 },
+    { t: '상관 없음', r: null, f: none }
+  ] },
+  { q: '해산물은 어때요?', o: [
+    { t: '해산물 먹고 싶어요', r: '해산물', f: m => m.pr === 'sea' ? 8 : m.pr === 'mix' ? 0 : -3 },
+    { t: '해산물은 안 먹어요', r: '해산물 없는 메뉴', f: m => m.pr === 'sea' ? -100 : m.pr === 'mix' ? -2 : 1 },
     { t: '상관 없음', r: null, f: none }
   ] },
   { q: '양은 어느 정도가 좋아요?', o: [
     { t: '든든하게', r: '든든한 한 끼', f: m => m.h === 3 ? 4 : m.h === 2 ? 1 : -3 },
     { t: '보통', r: '적당한 양', f: m => m.h === 2 ? 3 : 0 },
-    { t: '가볍게', r: '가볍게 먹기 좋아요', f: m => m.h === 1 ? 4 : m.h === 2 ? -1 : -4 }
+    { t: '가볍게', r: '가볍게 먹기 좋아요', f: m => m.h === 1 ? 4 : m.h === 2 ? -1 : -4 },
+    { t: '상관 없음', r: null, f: none }
   ] },
   { q: '맵기는 어느 정도가 좋아요?', o: [
     { t: '맵게', r: '매콤한 맛', f: m => m.sp === 2 ? 5 : m.sp === 1 ? 1 : -4 },
     { t: '적당하게', r: '적당한 맵기', f: m => m.sp === 1 ? 4 : m.sp === 0 ? 1 : -2 },
-    { t: '순하게', r: '순한 맛', f: m => m.sp === 0 ? 4 : m.sp === 1 ? -2 : -5 }
+    { t: '순하게', r: '순한 맛', f: m => m.sp === 0 ? 4 : m.sp === 1 ? -2 : -5 },
+    { t: '상관 없음', r: null, f: none }
   ] }
 ];
 
@@ -592,6 +649,11 @@ function tasteSummary() {
 
 /* 모든 메뉴에 점수를 매겨 높은 순으로 돌려준다. 동점이 많아서 약간의 무작위를 섞는다. */
 function rank(answers) {
+  /* 모든 질문이 상관 없음이면 조건도 입맛 학습도 무시하고 순수 랜덤으로 섞는다. */
+  const allAny = answers.every((a, i) => Q[i].o[a].t === '상관 없음');
+  if (allAny) {
+    return M.map(m => ({ m: m, score: Math.random(), contrib: [], random: true })).sort((x, y) => y.score - x.score);
+  }
   return M.map(m => {
     let score = 0;
     const contrib = [];
@@ -994,7 +1056,7 @@ function renderResult() {
   const r = ranked[sel];
   const m = r.m;
   $('r-kind').textContent = '오늘의 점심 · ' + KIND[m.k];
-  $('r-rank').textContent = '추천 ' + (sel + 1) + '순위';
+  $('r-rank').textContent = r.random ? '랜덤 뽑기' : '추천 ' + (sel + 1) + '순위';
   $('r-name').textContent = m.n;
   const ic = dishIcon(m);
   const iconEl = $('r-icon');
@@ -1017,7 +1079,7 @@ function renderResult() {
   if (reasons.length === 0) {
     const li = document.createElement('li');
     li.className = 'plain';
-    li.textContent = '고른 조건과 크게 어긋나는 점이 없어요';
+    li.textContent = r.random ? '전부 상관 없음이라 랜덤으로 뽑았어요' : '고른 조건과 크게 어긋나는 점이 없어요';
     why.appendChild(li);
   } else {
     reasons.forEach(c => {
